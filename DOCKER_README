@@ -1,0 +1,12 @@
+After changing the notebooks, cd into the codes/ directory and do an svn update.  
+Then, cd back into this directory (cd ../) and update the temporary student.  First, rebuild the docker image:
+
+docker build -t icerm/hippylib .
+
+Then stop the current containers if they are running (this takes a few minutes):
+
+./StopServer.sh
+
+And restart the containers with the new image:
+
+./StartServer.sh
