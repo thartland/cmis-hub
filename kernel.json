@@ -1,0 +1,20 @@
+{
+ "display_name": "Python 2",
+ "language": "python",
+ "env": {
+  "PATH": "/home/fenics/build/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+  "LD_LIBRARY_PATH": "/home/fenics/build/lib:",
+  "PKG_CONFIG_PATH": "/home/fenics/build/lib/pkgconfig:",
+  "PYTHONPATH": "/home/fenics/build/lib/python2.7/site-packages:",
+  "MANPATH": "/home/fenics/build/share/man:",
+  "SRC_DIR": "/home/fenics/build/src",
+  "OPENBLAS_NUM_THREADS": "1"
+ },
+ "argv": [
+  "/usr/bin/python",
+  "-m",
+  "ipykernel",
+  "-f",
+  "{connection_file}"
+ ]
+}
