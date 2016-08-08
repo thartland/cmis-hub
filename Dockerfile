@@ -5,11 +5,16 @@ USER root
 
 RUN apt-get update && \ 
     apt-get install -yy pwgen npm nodejs-legacy python3-pip && \
-    pip install --upgrade matplotlib && \
     npm install -g configurable-http-proxy && \
-    pip3 install jupyterhub==0.4.1 ipython[notebook] && \
-    pip2 install --upgrade ipython[notebook] && \
-    apt-get install openssl 
+    pip3 install jupyterhub==0.4.1 && \
+    pip3 install ipython[notebook]==4.0.0 
+
+#RUN apt-get update && \
+#    apt-get install -yy pwgen npm nodejs-legacy python3-pip && \
+#    npm install -g configurable-http-proxy && \
+#    pip3 install jupyterhub==0.4.1 ipython[notebook]==4.0.0 && \
+#    pip2 install --upgrade ipython[notebook]==4.0.0 && \
+#    pip2 install --upgrade matplotlib==1.5.1
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
