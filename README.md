@@ -1,39 +1,59 @@
-# Jupyterhub and FEniCS Educational Environment
-## Jack S. Hale
+# Jupyterhub and hIPPYlib Educational Environment
+## Umberto Villa
 
 This will launch a full multi-user FEniCS Project environment for classrooms,
 courses and general fun using Jupyterhub, iPython Notebook and FEniCS. Each
 user has his own home directory.
 
-1. Install Docker from http://docker.com
-2. Launch the container:
+This scripts are an adaptation of Jake Hale's project available from [fenics-jupyter](https://bitbucket.org/jackhale/fenics-jupyter).
 
-        docker run -ti -p 80:8000 jhale/fenics-jupyter
-   
-    This will print a list of usernames and passwords to hand out to your users.
-    The administrator user has username fenics and password docker. You can (and
-    should) change this the usual way at the terminal in jupyter. 
+Here a list of instruction:
 
-        passwd
+1. (One time only) Install [docker](https://www.docker.com/). On Ubuntu one can simply enter the command
+```
+#!sh
+    apt-get install docker.io
+```
 
-    If you need more users start the container with:
+2. (One time only) Clone the hippylib-hub repository
+```
+#!sh
+    git clone https://npetra@bitbucket.org/npetra/hippylib-hub.git
+```
 
-        docker run -ti -p 80:8000 --env NUMBER_OF_USERS=30 jhale/fenics-jupyter
+3. (One time only) Go inside the `hippylib-hub` folder, and clone `hippylib` and `hippylib-tutorial`:
+```
+#!sh
+    cd hippylib-hub
+    git clone https://npetra@bitbucket.org/npetra/hippylib.git
+    git clone https://npetra@bitbucket.org/npetra/hippylib-tutorial.git
+```
+4. Build the docker image (This step needs to be repeated each time `hippylib` or `hippylib-tutorial` is updated)
+```
+#!sh
+    ./build_hippyhub.sh
+```
 
-3. Get your users to connect to ipython in your web browser with the address:
+5. Check that the image was created correctly with the command
+```
+#!sh
+    docker images
+```
 
-        http://<your ip here>
+6. Start the server
+```
+#!sh
+    ./run_hippyhub.sh
+```
 
-4. Login and start a Python 2 notebook. You can enable inline plotting in a notebook using:
+7. Check that the server is up
+```
+#!sh
+    docker ps
+```
 
-        %matplotlib inline
-        %run /home/fenics/fenics-matplotlib.py 
-
-5. Get up and running with DOLFIN:
-
-        from dolfin import *
-
-Coming at a later date:
-
-* SSL support.
-* Amazon AWS instructions. In short: yes, you can run this image on AWS instances.
+8. Stop ad delete the server (always stop the server before rebuilding the docker image)
+```
+#!sh
+    ./stop_hippyhub
+```
