@@ -18,15 +18,15 @@ Here a list of instruction:
 2. (One time only) Clone the hippylib-hub repository
 ```
 #!sh
-    git clone https://npetra@bitbucket.org/npetra/hippylib-hub.git
+    git clone git@bitbucket.org:hippylibdev/hippylib-hub.git
 ```
 
 3. (One time only) Go inside the `hippylib-hub` folder, and clone `hippylib` and `hippylib-tutorial`:
 ```
 #!sh
     cd hippylib-hub
-    git clone https://npetra@bitbucket.org/npetra/hippylib.git
-    git clone https://npetra@bitbucket.org/npetra/hippylib-tutorial.git
+    git clone git@bitbucket.org:hippylibdev/hippylib.git
+    git clone git@bitbucket.org:hippylibdev/hippylib-tutorial.git
 ```
 4. Build the docker image (This step needs to be repeated each time `hippylib` or `hippylib-tutorial` is updated)
 ```
