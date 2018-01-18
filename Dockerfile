@@ -1,4 +1,4 @@
-FROM quay.io/fenicsproject/stable:1.6.0
+FROM quay.io/fenicsproject/stable:2017.2.0.r3
 MAINTAINER Jack S. Hale
 
 USER root
@@ -35,7 +35,7 @@ COPY jupyter_notebook_config.py /home/fenics/.jupyter/jupyter_notebook_config.py
 
 USER fenics
 COPY hippylib /home/fenics/hippylib
-COPY hippylib-tutorial /home/fenics/hippylib-tutorial
+#COPY hippylib-tutorial /home/fenics/hippylib-tutorial
 
 USER root
 ENV NUMBER_OF_USERS 120
