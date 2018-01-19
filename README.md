@@ -14,13 +14,11 @@ Here a list of instruction:
 #!sh
     apt-get install docker.io
 ```
-
 2. (One time only) Clone the hippylib-hub repository
 ```
 #!sh
     git clone git@bitbucket.org:hippylibdev/hippylib-hub.git
 ```
-
 3. (One time only) Go inside the `hippylib-hub` folder, and clone `hippylib`:
 ```
 #!sh
@@ -32,32 +30,27 @@ Here a list of instruction:
 #!sh
     sudo docker build -t hippylib/hub .
 ```
-
 5. Check that the image was created correctly with the command
 ```
 #!sh
     sudo docker images
 ```
-
 6. Start the server
 ```
 #!sh
     sudo docker run -td -p 80:8000 --name=hippyhub hippylib/hub
 ```
-
 7. Check that the server is up
 ```
 #!sh
     sudo docker ps
 ```
-
 8. Check messages from the server
 ```
 #!sh
     sudo docker logs hippyhub
 ```
-
-8. Stop ad delete the server (always stop the server before rebuilding the docker image)
+9. Stop ad delete the server (always stop the server before rebuilding the docker image)
 ```
 #!sh
     sudo docker stop hippyhub
