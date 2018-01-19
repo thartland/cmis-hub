@@ -18,8 +18,6 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 #                 -subj "/C=XY/ST=XYZ/L=XYZ/O=XYZ/CN=example.com" \ 
 #                 -keyout /etc/certs/ssl.key -out /etc/certs/ssl.crt
 
-#RUN mkdir -p /usr/local/share/jupyter/kernels/python2
-#COPY kernel.json /usr/local/share/jupyter/kernels/python2/kernel.json
 COPY jupyterhub_config.py /home/fenics/jupyterhub_config.py
 COPY make-users.sh /etc/my_init.d/make-users.sh
 RUN chmod +x /etc/my_init.d/make-users.sh
