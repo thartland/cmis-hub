@@ -1,4 +1,4 @@
-git clone https://bitbucket.org/hippylibdev/hippylib-hub.git
+git clone https://github.com/hippylib/hippylib-hub.git
 cd hippylib-hub
 git clone https://github.com/hippylib/hippylib.git
 sudo docker build -t hippylib/hub .
