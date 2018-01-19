@@ -21,39 +21,45 @@ Here a list of instruction:
     git clone git@bitbucket.org:hippylibdev/hippylib-hub.git
 ```
 
-3. (One time only) Go inside the `hippylib-hub` folder, and clone `hippylib` and `hippylib-tutorial`:
+3. (One time only) Go inside the `hippylib-hub` folder, and clone `hippylib`:
 ```
 #!sh
     cd hippylib-hub
-    git clone git@bitbucket.org:hippylibdev/hippylib.git
-    git clone git@bitbucket.org:hippylibdev/hippylib-tutorial.git
+    git clone https://github.com/hippylib/hippylib.git
 ```
-4. Build the docker image (This step needs to be repeated each time `hippylib` or `hippylib-tutorial` is updated)
+4. Build the docker image (This step needs to be repeated each time `hippylib` is updated)
 ```
 #!sh
-    ./build_hippyhub.sh
+    sudo docker build -t hippylib/hub .
 ```
 
 5. Check that the image was created correctly with the command
 ```
 #!sh
-    docker images
+    sudo docker images
 ```
 
 6. Start the server
 ```
 #!sh
-    ./run_hippyhub.sh
+    sudo docker run -td -p 80:8000 --name=hippyhub hippylib/hub
 ```
 
 7. Check that the server is up
 ```
 #!sh
-    docker ps
+    sudo docker ps
+```
+
+8. Check messages from the server
+```
+#!sh
+    sudo docker logs hippyhub
 ```
 
 8. Stop ad delete the server (always stop the server before rebuilding the docker image)
 ```
 #!sh
-    ./stop_hippyhub
+    sudo docker stop hippyhub
+    sudo docker rm hippyhub
 ```
