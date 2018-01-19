@@ -10,15 +10,15 @@ This scripts are an adaptation of Jake Hale's project available from [fenics-jup
 Here a list of instructions:
 
 1. (One time only) Install [docker](https://www.docker.com/). On Ubuntu one can simply enter the command
- ```
- #!sh
-     apt-get install docker.io
- ```
+    ```
+    #!sh
+    apt-get install docker.io
+    ```
 2. (One time only) Clone the hippylib-hub repository
- ```
- #!sh
-     git clone git@bitbucket.org:hippylibdev/hippylib-hub.git
- ```
+    ```
+    #!sh
+    git clone git@bitbucket.org:hippylibdev/hippylib-hub.git
+    ```
 3. (One time only) Go inside the `hippylib-hub` folder, and clone `hippylib`:
  ```
  #!sh
