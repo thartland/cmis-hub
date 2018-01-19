@@ -1,1 +1,1 @@
-docker build -t hippylib/samsi .
+docker build -t hippylib/hub .
