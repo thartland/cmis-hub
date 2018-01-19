@@ -2,7 +2,7 @@
 echo "Creating ${NUMBER_OF_USERS} new users..."
 for ((i = 0; i < ${NUMBER_OF_USERS}; i++));
 do
-    password="samsi${i}"
+    password=$(pwgen -N 1)
     useradd "user${i}" -m -s /bin/bash
     echo "user${i}:${password}" | chpasswd user${i}
     cp -r /home/fenics/hippylib /home/user${i}/hippylib
