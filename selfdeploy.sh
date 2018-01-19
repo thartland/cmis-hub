@@ -1,4 +1,4 @@
-#!sh
+#!/bin/sh
 git clone https://github.com/hippylib/hippylib-hub.git
 cd hippylib-hub
 git clone https://github.com/hippylib/hippylib.git
