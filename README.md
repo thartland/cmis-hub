@@ -24,8 +24,7 @@ Here a list of instructions:
 3. (One time only) Go inside the `hippylib-hub` folder, and clone `hippylib`:
 
     ```
-     cd hippylib-hub
-     git clone https://github.com/hippylib/hippylib.git
+     cd hippylib-hub & git clone https://github.com/hippylib/hippylib.git
     ```
     
 4. Build the docker image (This step needs to be repeated each time `hippylib` is updated)
@@ -61,6 +60,5 @@ Here a list of instructions:
 9. Stop ad delete the server (always stop the server before rebuilding the docker image)
 
    ```
-   sudo docker stop hippyhub
-   sudo docker rm hippyhub
+   sudo docker stop hippyhub & sudo docker rm hippyhub
    ```
