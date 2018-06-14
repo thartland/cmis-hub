@@ -19,14 +19,6 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 #                 -subj "/C=XY/ST=XYZ/L=XYZ/O=XYZ/CN=example.com" \
 #                 -keyout /etc/certs/ssl.key -out /etc/certs/ssl.crt
 
-COPY jupyterhub_config.py /home/fenics/jupyterhub_config.py
-COPY make-users-std-password.sh /etc/my_init.d/make-users-std-password.sh
-RUN chmod +x /etc/my_init.d/make-users-std-password.sh
-COPY copy_labs.sh /etc/my_init.d/copy_labs.sh
-RUN chmod +x /etc/my_init.d/copy_labs.sh
-RUN mkdir -p /home/fenics/.jupyter
-COPY jupyter_notebook_config.py /home/fenics/.jupyter/jupyter_notebook_config.py
-
 USER fenics
 
 # Install MUQ
@@ -52,7 +44,17 @@ ENV PYTHONPATH /home/fenics/Installations/MUQ_INSTALL/lib
 ENV PYTHONPATH /home/fenics/Installations/hippylib
 
 USER root
-ENV NUMBER_OF_USERS 50
+
+COPY jupyterhub_config.py /home/fenics/jupyterhub_config.py
+COPY make-users-std-password.sh /etc/my_init.d/make-users-std-password.sh
+RUN chmod +x /etc/my_init.d/make-users-std-password.sh
+COPY update_lab.sh /home/fenics/update_lab.sh
+RUN chmod +x /home/fenics/update_lab.sh
+RUN mkdir -p /home/fenics/.jupyter
+COPY jupyter_notebook_config.py /home/fenics/.jupyter/jupyter_notebook_config.py
+
+
+ENV NUMBER_OF_USERS 60
 WORKDIR /home/fenics/
 ENTRYPOINT ["/sbin/my_init","--"]
 CMD ["jupyterhub"]
