@@ -48,6 +48,7 @@ USER root
 COPY jupyterhub_config.py /home/fenics/jupyterhub_config.py
 COPY make-users-std-password.sh /etc/my_init.d/make-users-std-password.sh
 RUN chmod +x /etc/my_init.d/make-users-std-password.sh
+RUN rm /etc/my_init.d/set-home-permissions.sh
 COPY update_lab.sh /home/fenics/update_lab.sh
 RUN chmod +x /home/fenics/update_lab.sh
 RUN mkdir -p /home/fenics/.jupyter
