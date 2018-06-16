@@ -1,6 +1,7 @@
 #!/bin/sh
-git clone https://github.com/hippylib/hippylib-hub.git
+git clone https://github.com/g2s3-2018/hippylib-hub.git
 cd hippylib-hub
-sudo docker pull mparno/muq-hippylib
-sudo docker run -td -p 80:8000 --name=hippyhub mparno/muq-hippylib
-sudo docker logs hippyhub > hippyhub.out
+sudo docker build -t muq-hippylib/g2s3hub .
+sudo docker run -td -p 80:8000 --name=g2s3hub muq-hippylib/g2s3hub
+sleep 2m
+sudo docker logs g2s3hub > g2s3hub.out
