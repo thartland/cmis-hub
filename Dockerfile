@@ -24,7 +24,7 @@ USER fenics
 # Install MUQ
 RUN cd /home/fenics && \
     mkdir Installations; mkdir Installations/MUQ_INSTALL && \
-    git clone --depth 1 https://mparno@bitbucket.org/mparno/muq2.git && \
+    git clone --depth 1 https://mparno@bitbucket.org/mituq/muq2.git && \
     cd muq2/; mkdir build; cd build;  \
     cmake -DCMAKE_INSTALL_PREFIX=/home/fenics/Installations/MUQ_INSTALL -DMUQ_USE_PYTHON=ON ../ && \
     make install
