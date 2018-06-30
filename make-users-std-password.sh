@@ -14,12 +14,7 @@ do
     chown -R user${i} /home/user${i}/.jupyter
     chmod -R u+rX /home/user${i}/.jupyter
     
-    #cp -r /home/fenics/Installations/labs/Labs /home/user${i}/
-    #chown -R user${i} /home/user${i}/Labs
-    #chmod -R u+rX /home/user${i}/Labs
-    
-    mkdir /home/user${i}/Labs
-    echo "Each day of the school we will automatically add material to this folder for corresponding lab session." > /home/user${i}/Labs/README
+    cp -r /home/fenics/Installations/labs/Labs /home/user${i}/
     chown -R user${i} /home/user${i}/Labs
     chmod -R u+rX /home/user${i}/Labs
  
