@@ -4,11 +4,11 @@ MAINTAINER U. Villa
 USER root
 
 RUN apt-get update && \
-    apt-get install -yy pwgen npm nodejs-legacy python3-pip && \
+    apt-get install -yy pwgen npm nodejs-legacy python3-pip libgeos-dev&& \
     npm install -g configurable-http-proxy && \
     pip3 install jupyterhub==0.8.1 && \
-    pip3 install ipython[notebook]==6.2.1 && \
-    pip install jupyterlab
+    pip3 install ipython[notebook]==6.2.1 h5py pandas && \
+    pip install --user https://github.com/matplotlib/basemap/archive/master.zip
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -24,24 +24,23 @@ USER fenics
 # Install MUQ
 RUN cd /home/fenics && \
     mkdir Installations; mkdir Installations/MUQ_INSTALL && \
-    git clone --depth 1 https://mparno@bitbucket.org/mparno/muq2.git && \
+    git clone --depth 1 https://bitbucket.org/mituq/muq2.git && \
     cd muq2/; mkdir build; cd build;  \
     cmake -DCMAKE_INSTALL_PREFIX=/home/fenics/Installations/MUQ_INSTALL -DMUQ_USE_PYTHON=ON ../ && \
     make install
-    
+
 # Install hIPPYlib
 RUN cd /home/fenics/Installations && \
     git clone https://github.com/hippylib/hippylib.git && \
     chmod -R o+rx hippylib
-    
+
 # Copy the notebooks
 RUN cd /home/fenics/Installations && \
     git clone https://github.com/g2s3-2018/labs.git
 
 COPY python3_config.json /usr/local/share/jupyter/kernels/python3/kernel.json
 ENV LD_LIBRARY_PATH /home/fenics/Installations/MUQ_INSTALL/lib:/home/fenics/Installations/MUQ_INSTALL/muq_external/lib
-ENV PYTHONPATH /home/fenics/Installations/MUQ_INSTALL/lib
-ENV PYTHONPATH /home/fenics/Installations/hippylib
+ENV PYTHONPATH /home/fenics/Installations/MUQ_INSTALL/lib:/home/fenics/Installations/hippylib
 
 USER root
 
