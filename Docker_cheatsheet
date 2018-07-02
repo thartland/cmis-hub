@@ -6,7 +6,7 @@ Useful commands for manipulating docker containers and images:
   docker run -i -t imauq/fenics /bin/bash
 
 - To build docker image, run this in base folder:
-I
+  docker build -t imauq/fenics .
 
 - List all running docker containers:
   docker ps

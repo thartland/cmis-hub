@@ -18,7 +18,7 @@ Here a list of instructions:
 2. Build the docker image (This step needs to be repeated each time `hippylib` or `muq` is updated)
 
     ```
-    sudo docker build -t hippylib/hub .
+    sudo docker build -t muq-hippylib/g2s3hub .
     ```
    
 3. Check that the image was created correctly with the command
@@ -30,7 +30,7 @@ Here a list of instructions:
 4. Start the server
 
     ```
-    sudo docker run -td -p 80:8000 --name=hippyhub hippylib/hub
+    sudo docker run -td -p 80:8000 --name=g2s3hub muq-hippylib/g2s3hub
     ```
    
 5. Check that the server is up
@@ -42,17 +42,17 @@ Here a list of instructions:
 6. Check messages from the server
 
     ```
-    sudo docker logs hippyhub
+    sudo docker logs g2s3hub
     ```
     
 7. Update the Lab materials
 
     ```
-    docker exec --user root hippyhub ./update_lab.sh <LabName>
+    docker exec --user root g2s3hub ./update_lab.sh <LabName>
     ```
    
 8. Stop ad delete the server (always stop the server before rebuilding the docker image)
 
     ```
-    sudo docker stop hippyhub & sudo docker rm hippyhub
+    sudo docker stop g2s3hub & sudo docker rm g2s3hub
     ```
