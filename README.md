@@ -15,10 +15,10 @@ Here a list of instructions:
     apt-get install docker.io
     ```
     
-2. Build the docker image (This step needs to be repeated each time `hippylib` or `muq` is updated)
+2. Build the docker image
 
     ```
-    sudo docker build -t muq-hippylib/g2s3hub .
+    sudo docker build -t hippyhub/cmis .
     ```
    
 3. Check that the image was created correctly with the command
@@ -30,7 +30,7 @@ Here a list of instructions:
 4. Start the server
 
     ```
-    sudo docker run -td -p 80:8000 --name=g2s3hub muq-hippylib/g2s3hub
+    sudo docker run -td -p 80:8000 --name=cmis-hub hippyhub/cmis 
     ```
    
 5. Check that the server is up
@@ -42,17 +42,16 @@ Here a list of instructions:
 6. Check messages from the server
 
     ```
-    sudo docker logs g2s3hub
+    sudo docker logs cmis-hub
     ```
-    
-7. Update the Lab materials
 
-    ```
-    docker exec --user root g2s3hub ./update_lab.sh <LabName>
-    ```
+7. Connect to server
+   ```    
+   docker exec -it cmis-hub /bin/bash
+   ```
    
 8. Stop ad delete the server (always stop the server before rebuilding the docker image)
 
     ```
-    sudo docker stop g2s3hub & sudo docker rm g2s3hub
+    sudo docker stop cmis-hub & sudo docker rm cmis-hub
     ```
