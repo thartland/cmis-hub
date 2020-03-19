@@ -1,4 +1,4 @@
-FROM quay.io/fenicsproject/stable:2019.1.0
+FROM quay.io/fenicsproject/stable:2019.1.0.r3
 MAINTAINER U. Villa
 
 USER root
