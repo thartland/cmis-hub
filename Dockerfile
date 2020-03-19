@@ -1,4 +1,4 @@
-FROM quay.io/fenicsproject/stable:2017.2.0
+FROM quay.io/fenicsproject/stable:2019.1.0
 MAINTAINER U. Villa
 
 USER root
@@ -17,7 +17,7 @@ USER fenics
 # Install hIPPYlib
 RUN cd /home/fenics/ && \
     git clone https://github.com/hippylib/hippylib.git && \
-    cd hippylib && git checkout -b tags/2.2.0 && cd .. &&\
+    cd hippylib && git checkout -b tags/3.0.0 && cd .. &&\
     chmod -R o+rx hippylib
 
 # Copy the notebooks
