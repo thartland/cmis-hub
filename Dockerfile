@@ -23,7 +23,7 @@ RUN cd /home/fenics/ && \
 
 # Copy the notebooks
 RUN cd /home/fenics/ && \
-    git clone https://github.com/uvilla/cmis_labs.git
+    git clone https://github.com/npetra/vippde-lab.git
 
 COPY jupyterhub_config.py /home/fenics/jupyterhub_config.py
 COPY make-users.py /home/fenics/make-users.py
