@@ -10,8 +10,10 @@ def push2user(user, folder):
 parser = argparse.ArgumentParser(description='Push user content')
 parser.add_argument('folder', nargs=1)
 args = parser.parse_args()
-os.system('cd /home/fenics/cmis_labs && git pull')
-with open('users.csv') as csvfile:
-	reader = csv.DictReader(csvfile)
-	for row in reader:
-		push2user(row['user'], args.folder)
+print(args.folder[0])
+
+#os.system('cd /home/fenics/vippde-lab && git pull')
+#with open('users.csv') as csvfile:
+#	reader = csv.DictReader(csvfile)
+#	for row in reader:
+#		push2user(row['user'], args.folder[0])
